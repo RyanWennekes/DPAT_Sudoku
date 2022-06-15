@@ -1,0 +1,14 @@
+C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku\bin\Debug\netcoreapp3.1\DPAT_Sudoku.exe
+C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku\bin\Debug\netcoreapp3.1\DPAT_Sudoku.deps.json
+C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku\bin\Debug\netcoreapp3.1\DPAT_Sudoku.runtimeconfig.json
+C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku\bin\Debug\netcoreapp3.1\DPAT_Sudoku.runtimeconfig.dev.json
+C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku\bin\Debug\netcoreapp3.1\DPAT_Sudoku.dll
+C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku\bin\Debug\netcoreapp3.1\DPAT_Sudoku.pdb
+C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku\obj\Debug\netcoreapp3.1\DPAT_Sudoku.csproj.AssemblyReference.cache
+C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku\obj\Debug\netcoreapp3.1\DPAT_Sudoku.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku\obj\Debug\netcoreapp3.1\DPAT_Sudoku.AssemblyInfoInputs.cache
+C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku\obj\Debug\netcoreapp3.1\DPAT_Sudoku.AssemblyInfo.cs
+C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku\obj\Debug\netcoreapp3.1\DPAT_Sudoku.csproj.CoreCompileInputs.cache
+C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku\obj\Debug\netcoreapp3.1\DPAT_Sudoku.dll
+C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku\obj\Debug\netcoreapp3.1\DPAT_Sudoku.pdb
+C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku\obj\Debug\netcoreapp3.1\DPAT_Sudoku.genruntimeconfig.cache
