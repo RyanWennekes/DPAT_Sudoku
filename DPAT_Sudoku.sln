@@ -5,6 +5,10 @@ VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DPAT_Sudoku", "DPAT_Sudoku\DPAT_Sudoku.csproj", "{B37B9E9D-E979-43B3-A7FA-6BE232C405A3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DPAT_Sudoku.Domain", "DPAT_Sudoku.Domain\DPAT_Sudoku.Domain.csproj", "{EB55ED0D-A651-4AC8-8786-8C6B0F25FDDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DPAT_Sudoku.Business", "DPAT_Sudoku.Business\DPAT_Sudoku.Business.csproj", "{1DAF1D19-2189-4C31-842D-630D3878FDAC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{B37B9E9D-E979-43B3-A7FA-6BE232C405A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B37B9E9D-E979-43B3-A7FA-6BE232C405A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B37B9E9D-E979-43B3-A7FA-6BE232C405A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB55ED0D-A651-4AC8-8786-8C6B0F25FDDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB55ED0D-A651-4AC8-8786-8C6B0F25FDDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB55ED0D-A651-4AC8-8786-8C6B0F25FDDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB55ED0D-A651-4AC8-8786-8C6B0F25FDDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DAF1D19-2189-4C31-842D-630D3878FDAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DAF1D19-2189-4C31-842D-630D3878FDAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DAF1D19-2189-4C31-842D-630D3878FDAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DAF1D19-2189-4C31-842D-630D3878FDAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
