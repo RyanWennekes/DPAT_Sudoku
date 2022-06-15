@@ -21,11 +21,33 @@ namespace DPAT_Sudoku.Domain
             Children.Add(raster);
         }
 
-        public Sudoku Solve()
+        public bool Solve()
         {
+            List<Cell> cells = GetCells().Where(c => c.Value == null).ToList();
+            Cell cell = cells.FirstOrDefault();
 
+            if (cell != null)
+            {
+                for (int i = 1; i < 10; i++)
+                {
+                    cell.Value = i;
+                    List<Cell> invalidCells = Validate();
+                    if (invalidCells.Count == 0) // If the number of invalid cells is zero.
+                    {
+                        if (Solve())
+                        {
+                            return true;
+                        }
+                    }
+                }
 
-            return this;
+                cell.Value = null;
+
+                return false;
+            } else
+            {
+                return true;
+            }
         }
 
         // Returns an array with invalid cells. Applies on children (composite pattern).
@@ -44,17 +66,20 @@ namespace DPAT_Sudoku.Domain
                 comparativeCells.ForEach(cc =>
                 {
                     if (c.Value == cc.Value
-                    && (c.Location.X == cc.Location.X ^ c.Location.Y == cc.Location.Y)) // Exclusive or: we don't want to invalidate the same cell.
+                    && c.Value != null
+                    && c.Location != cc.Location
+                    && (c.Location.X == cc.Location.X || c.Location.Y == cc.Location.Y)) // Exclusive or: we don't want to invalidate the same cell.
                     {
                         invalidCells.Add(c);
                     }
                 });
             });
 
-            return invalidCells;
+            return invalidCells.GroupBy(c => c.Location).Select(group => group.First()).ToList();
         }
 
         public abstract void Accept(Visitor.Visitor visitor);
+
         public List<Cell> GetCells()
         {
             List<Cell> cells = new List<Cell>();
@@ -98,5 +123,10 @@ namespace DPAT_Sudoku.Domain
         }
 
         public abstract int GetHeight();
+
+        private Cell FirstEmptyCell()
+        {
+            return GetCells().FirstOrDefault(c => c.Value == null);
+        }
     }
 }

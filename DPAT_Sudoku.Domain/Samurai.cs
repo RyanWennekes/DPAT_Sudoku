@@ -1,6 +1,7 @@
 ﻿using DPAT_Sudoku.Domain.Composite;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace DPAT_Sudoku.Domain
@@ -41,6 +42,8 @@ namespace DPAT_Sudoku.Domain
                     comparativeCells.ForEach(cc =>
                     {
                         if (c.Value == cc.Value
+                        && c.Value != null
+                        && c.Location != cc.Location
                         && c.Location.X == cc.Location.X ^ c.Location.Y == cc.Location.Y)
                         {
                             invalidCells.Add(c);
