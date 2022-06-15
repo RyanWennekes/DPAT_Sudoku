@@ -1,11 +1,12 @@
 ﻿using DPAT_Sudoku.Domain.Composite;
+using DPAT_Sudoku.Domain.Visitor;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DPAT_Sudoku.Domain
 {
-    public abstract class Sudoku : Component
+    public abstract class Sudoku : Component, Element
     {
         public List<Component> Children { get; set; }
 
@@ -19,14 +20,33 @@ namespace DPAT_Sudoku.Domain
             Children.Add(raster);
         }
 
-        public bool Solve()
+        public abstract bool Solve();
+
+        public abstract bool Validate();
+
+        public abstract void Accept(Visitor.Visitor visitor);
+        public List<Cell> GetCells()
         {
-            throw new NotImplementedException();
+            List<Cell> cells = new List<Cell>();
+
+            Children.ForEach(c =>
+            {
+                cells.AddRange(c.GetCells());
+            });
+
+            return cells;
         }
 
-        public bool Validate()
+        public List<Raster> GetRasters()
         {
-            throw new NotImplementedException();
+            List<Raster> rasters = new List<Raster>();
+
+            Children.ForEach(c =>
+            {
+                rasters.AddRange(c.GetRasters());
+            });
+
+            return rasters;
         }
     }
 }

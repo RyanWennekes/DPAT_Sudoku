@@ -8,5 +8,8 @@ namespace DPAT_Sudoku.Domain.Composite
     {
         public bool Solve();
         public bool Validate();
+        public List<Cell> GetCells();
+
+        public List<Raster> GetRasters();
     }
 }

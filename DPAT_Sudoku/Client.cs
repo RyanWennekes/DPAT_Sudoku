@@ -21,6 +21,9 @@ namespace DPAT_Sudoku
 
             SudokuFactory factory = new SudokuFactory();
             _sudoku = factory.Create(import.Item2, import.Item1);
+
+            ConsoleViewVisitor visitor = new ConsoleViewVisitor();
+            _sudoku.Accept(visitor);
         }
     }
 }

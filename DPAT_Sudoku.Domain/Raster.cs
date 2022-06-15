@@ -19,6 +19,16 @@ namespace DPAT_Sudoku.Domain
             _cells.Add(cell);
         }
 
+        public List<Cell> GetCells()
+        {
+            return _cells;
+        }
+
+        public List<Raster> GetRasters()
+        {
+            return new List<Raster> { this };
+        }
+
         public bool Solve()
         {
             throw new NotImplementedException();
