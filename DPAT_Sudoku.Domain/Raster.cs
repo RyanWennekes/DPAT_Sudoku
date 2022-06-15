@@ -7,7 +7,18 @@ namespace DPAT_Sudoku.Domain
 {
     public class Raster : Component
     {
-        public List<Cell> Cells { get; set; }
+        private List<Cell> _cells;
+
+        public Raster()
+        {
+            _cells = new List<Cell>();
+        }
+
+        public void AddCell(Cell cell)
+        {
+            _cells.Add(cell);
+        }
+
         public bool Solve()
         {
             throw new NotImplementedException();

@@ -9,6 +9,16 @@ namespace DPAT_Sudoku.Domain
     {
         public List<Component> Children { get; set; }
 
+        public Sudoku()
+        {
+            Children = new List<Component>();
+        }
+
+        public void AddRaster(Raster raster)
+        {
+            Children.Add(raster);
+        }
+
         public bool Solve()
         {
             throw new NotImplementedException();

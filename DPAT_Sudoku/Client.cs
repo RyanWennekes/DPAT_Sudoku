@@ -1,4 +1,5 @@
-﻿using DPAT_Sudoku.Business.Singleton;
+﻿using DPAT_Sudoku.Business.Factory;
+using DPAT_Sudoku.Business.Singleton;
 using DPAT_Sudoku.Domain;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,9 @@ namespace DPAT_Sudoku
 
             Importer importer = Importer.GetInstance();
             (string, string) import = importer.Import(path);
+
+            SudokuFactory factory = new SudokuFactory();
+            _sudoku = factory.Create(import.Item2, import.Item1);
         }
     }
 }
