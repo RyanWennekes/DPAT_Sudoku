@@ -6,7 +6,7 @@ namespace DPAT_Sudoku
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Client client = new Client();
         }
     }
 }

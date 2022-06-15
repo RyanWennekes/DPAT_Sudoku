@@ -27,7 +27,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Ryan\\source\\repos\\DPAT_Sudoku\\DPAT_Sudoku.Domain\\DPAT_Sudoku.Domain.csproj": {
+                "projectPath": "C:\\Users\\Ryan\\source\\repos\\DPAT_Sudoku\\DPAT_Sudoku.Domain\\DPAT_Sudoku.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -81,11 +85,7 @@
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
-            "projectReferences": {
-              "C:\\Users\\Ryan\\source\\repos\\DPAT_Sudoku\\DPAT_Sudoku.Business\\DPAT_Sudoku.Business.csproj": {
-                "projectPath": "C:\\Users\\Ryan\\source\\repos\\DPAT_Sudoku\\DPAT_Sudoku.Business\\DPAT_Sudoku.Business.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {

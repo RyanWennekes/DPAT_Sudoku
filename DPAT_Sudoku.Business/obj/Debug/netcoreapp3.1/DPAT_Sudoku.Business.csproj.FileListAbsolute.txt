@@ -1,0 +1,13 @@
+C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku.Business\obj\Debug\netcoreapp3.1\DPAT_Sudoku.Business.csproj.AssemblyReference.cache
+C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku.Business\obj\Debug\netcoreapp3.1\DPAT_Sudoku.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku.Business\obj\Debug\netcoreapp3.1\DPAT_Sudoku.Business.AssemblyInfoInputs.cache
+C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku.Business\obj\Debug\netcoreapp3.1\DPAT_Sudoku.Business.AssemblyInfo.cs
+C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku.Business\obj\Debug\netcoreapp3.1\DPAT_Sudoku.Business.csproj.CoreCompileInputs.cache
+C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku.Business\bin\Debug\netcoreapp3.1\DPAT_Sudoku.Business.deps.json
+C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku.Business\bin\Debug\netcoreapp3.1\DPAT_Sudoku.Business.dll
+C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku.Business\bin\Debug\netcoreapp3.1\DPAT_Sudoku.Business.pdb
+C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku.Business\bin\Debug\netcoreapp3.1\DPAT_Sudoku.Domain.dll
+C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku.Business\bin\Debug\netcoreapp3.1\DPAT_Sudoku.Domain.pdb
+C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku.Business\obj\Debug\netcoreapp3.1\DPAT_Sudoku.Business.csproj.CopyComplete
+C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku.Business\obj\Debug\netcoreapp3.1\DPAT_Sudoku.Business.dll
+C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku.Business\obj\Debug\netcoreapp3.1\DPAT_Sudoku.Business.pdb

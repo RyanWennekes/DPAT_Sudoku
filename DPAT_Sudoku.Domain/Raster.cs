@@ -1,4 +1,4 @@
-﻿using DPAT_Sudoku.Business.Composite;
+﻿using DPAT_Sudoku.Domain.Composite;
 using System;
 using System.Collections.Generic;
 using System.Text;

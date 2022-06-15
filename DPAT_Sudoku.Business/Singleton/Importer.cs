@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace DPAT_Sudoku.Business.Singleton
@@ -16,6 +17,12 @@ namespace DPAT_Sudoku.Business.Singleton
             }
 
             return Importer.instance;
+        }
+
+        // Returns a tuple in which the first string denotes the data, and the second denotes the type.
+        public (string, string) Import(String path)
+        {
+            return (File.ReadAllText(path), Path.GetExtension(path));
         }
     }
 }

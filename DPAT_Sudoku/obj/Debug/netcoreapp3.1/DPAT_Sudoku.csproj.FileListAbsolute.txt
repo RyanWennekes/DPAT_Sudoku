@@ -12,3 +12,8 @@ C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku\obj\Debug\netcoreapp3.1\DPAT_
 C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku\obj\Debug\netcoreapp3.1\DPAT_Sudoku.dll
 C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku\obj\Debug\netcoreapp3.1\DPAT_Sudoku.pdb
 C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku\obj\Debug\netcoreapp3.1\DPAT_Sudoku.genruntimeconfig.cache
+C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku\bin\Debug\netcoreapp3.1\DPAT_Sudoku.Business.dll
+C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku\bin\Debug\netcoreapp3.1\DPAT_Sudoku.Domain.dll
+C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku\bin\Debug\netcoreapp3.1\DPAT_Sudoku.Business.pdb
+C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku\bin\Debug\netcoreapp3.1\DPAT_Sudoku.Domain.pdb
+C:\Users\Ryan\source\repos\DPAT_Sudoku\DPAT_Sudoku\obj\Debug\netcoreapp3.1\DPAT_Sudoku.csproj.CopyComplete

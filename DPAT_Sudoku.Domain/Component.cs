@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DPAT_Sudoku.Business.Composite
+namespace DPAT_Sudoku.Domain.Composite
 {
     public interface Component
     {

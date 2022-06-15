@@ -7,14 +7,41 @@
   "targets": {
     ".NETCoreApp,Version=v3.1": {
       "DPAT_Sudoku/1.0.0": {
+        "dependencies": {
+          "DPAT_Sudoku.Business": "1.0.0",
+          "DPAT_Sudoku.Domain": "1.0.0"
+        },
         "runtime": {
           "DPAT_Sudoku.dll": {}
+        }
+      },
+      "DPAT_Sudoku.Business/1.0.0": {
+        "dependencies": {
+          "DPAT_Sudoku.Domain": "1.0.0"
+        },
+        "runtime": {
+          "DPAT_Sudoku.Business.dll": {}
+        }
+      },
+      "DPAT_Sudoku.Domain/1.0.0": {
+        "runtime": {
+          "DPAT_Sudoku.Domain.dll": {}
         }
       }
     }
   },
   "libraries": {
     "DPAT_Sudoku/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DPAT_Sudoku.Business/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DPAT_Sudoku.Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
