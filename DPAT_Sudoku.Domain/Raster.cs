@@ -1,6 +1,7 @@
 ﻿using DPAT_Sudoku.Domain.Composite;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace DPAT_Sudoku.Domain
@@ -34,9 +35,20 @@ namespace DPAT_Sudoku.Domain
             throw new NotImplementedException();
         }
 
-        public bool Validate()
+        public List<Cell> Validate()
         {
-            throw new NotImplementedException();
+            List<Cell> duplicates = new List<Cell>();
+
+            var groups = _cells.GroupBy(c => c.Value).ToList();
+            groups.ForEach(group =>
+            {
+                if (group.Count() > 1 && group.Key != null)
+                {
+                    duplicates.AddRange(group);
+                }
+            });
+
+            return duplicates;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DPAT_Sudoku.Domain.Composite;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -11,14 +12,44 @@ namespace DPAT_Sudoku.Domain
             visitor.Visit(this);
         }
 
-        public override bool Solve()
+        public override int GetHeight()
         {
-            throw new NotImplementedException();
+            return 21;
         }
 
-        public override bool Validate()
+        public override List<Component> GetSudokus()
         {
-            throw new NotImplementedException();
+            return Children;
+        }
+
+        public override List<Cell> Validate()
+        {
+            List<Cell> invalidCells = new List<Cell>();
+            Children.ForEach(c =>
+            {
+                invalidCells.AddRange(c.Validate());
+            });
+
+            List<Component> subSudokus = GetSudokus();
+
+            subSudokus.ForEach(s =>
+            {
+                List<Cell> cells = s.GetCells();
+                cells.ForEach(c =>
+                {
+                    List<Cell> comparativeCells = s.GetCells();
+                    comparativeCells.ForEach(cc =>
+                    {
+                        if (c.Value == cc.Value
+                        && c.Location.X == cc.Location.X ^ c.Location.Y == cc.Location.Y)
+                        {
+                            invalidCells.Add(c);
+                        }
+                    });
+                });
+            });
+
+            return invalidCells;
         }
     }
 }

@@ -2,6 +2,7 @@
 using DPAT_Sudoku.Domain.Visitor;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace DPAT_Sudoku.Domain
@@ -20,9 +21,38 @@ namespace DPAT_Sudoku.Domain
             Children.Add(raster);
         }
 
-        public abstract bool Solve();
+        public Sudoku Solve()
+        {
 
-        public abstract bool Validate();
+
+            return this;
+        }
+
+        // Returns an array with invalid cells. Applies on children (composite pattern).
+        public virtual List<Cell> Validate()
+        {
+            List<Cell> invalidCells = new List<Cell>();
+            Children.ForEach(c =>
+            {
+                invalidCells.AddRange(c.Validate());
+            });
+
+            List<Cell> cells = GetCells();
+            cells.ForEach(c =>
+            {
+                List<Cell> comparativeCells = GetCells();
+                comparativeCells.ForEach(cc =>
+                {
+                    if (c.Value == cc.Value
+                    && (c.Location.X == cc.Location.X ^ c.Location.Y == cc.Location.Y)) // Exclusive or: we don't want to invalidate the same cell.
+                    {
+                        invalidCells.Add(c);
+                    }
+                });
+            });
+
+            return invalidCells;
+        }
 
         public abstract void Accept(Visitor.Visitor visitor);
         public List<Cell> GetCells()
@@ -48,5 +78,25 @@ namespace DPAT_Sudoku.Domain
 
             return rasters;
         }
+
+        public virtual List<Component> GetSudokus()
+        {
+            return new List<Component>() { this }; // Each sudoku, by default, returns a list containing only itself.
+        }
+
+        public void SetCellValue(int x, int y, int value)
+        {
+            List<Raster> rasters = GetRasters();
+            rasters.ForEach(r =>
+            {
+                var cell = r.GetCells().FirstOrDefault(c => c.Location.X == x && c.Location.Y == y);
+                if (cell != null)
+                {
+                    cell.Value = value;
+                }
+            });
+        }
+
+        public abstract int GetHeight();
     }
 }

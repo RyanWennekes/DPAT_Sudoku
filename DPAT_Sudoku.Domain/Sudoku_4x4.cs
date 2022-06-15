@@ -11,14 +11,9 @@ namespace DPAT_Sudoku.Domain
             visitor.Visit(this);
         }
 
-        public override bool Solve()
+        public override int GetHeight()
         {
-            throw new NotImplementedException();
-        }
-
-        public override bool Validate()
-        {
-            throw new NotImplementedException();
+            return 4;
         }
     }
 }
