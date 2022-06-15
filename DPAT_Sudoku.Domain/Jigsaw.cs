@@ -8,7 +8,7 @@ namespace DPAT_Sudoku.Domain
     {
         public override void Accept(Visitor.Visitor visitor)
         {
-            throw new NotImplementedException();
+            visitor.Visit(this);
         }
 
         public override bool Solve()

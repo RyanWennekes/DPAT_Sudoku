@@ -8,7 +8,7 @@ namespace DPAT_Sudoku
 {
     public class ConsoleViewVisitor : Visitor
     {
-        private static ConsoleColor[] _colors = new ConsoleColor[] { ConsoleColor.Yellow, ConsoleColor.Red, ConsoleColor.Gray, ConsoleColor.Green };
+        private static ConsoleColor[] _colors = new ConsoleColor[] { ConsoleColor.Yellow, ConsoleColor.Red, ConsoleColor.Gray, ConsoleColor.Green, ConsoleColor.Cyan, ConsoleColor.Magenta, ConsoleColor.DarkBlue, ConsoleColor.White };
 
         public void Visit(Samurai element)
         {
@@ -24,7 +24,7 @@ namespace DPAT_Sudoku
         public void Visit(Jigsaw element)
         {
             Console.Clear();
-            throw new NotImplementedException();
+            DrawSudoku(element.GetRasters());
         }
 
         public void Visit(Sudoku_4x4 element)
@@ -63,6 +63,7 @@ namespace DPAT_Sudoku
 
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("");
         }
     }
 }
