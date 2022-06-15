@@ -30,6 +30,8 @@ namespace DPAT_Sudoku.Business.Builder
                 sudokuRows.Add(input.Substring(i * 9, 9));
             }
 
+            sudokuRows.ForEach(r => Console.WriteLine(r.Length));
+
             Read9x9(sudokuRows);
         }
 
@@ -44,11 +46,11 @@ namespace DPAT_Sudoku.Business.Builder
                     List<string> rasterRows = rows9x9.GetRange(i * 3, 3);
 
                     rasterRows = rasterRows.Select(r => r.Substring(j * 3, 3)).ToList();
-                    rasterRows.ForEach(r =>
+                    for (int l = 0; l < rasterRows.Count; l++)
                     {
-                        for (int k = 0; k < r.Length; k++)
+                        for (int k = 0; k < rasterRows[l].Length; k++)
                         {
-                            int? value = int.Parse(r[k].ToString());
+                            int? value = int.Parse(rasterRows[l][k].ToString());
                             if (value < 1 || value > 9)
                             {
                                 value = null;
@@ -59,11 +61,11 @@ namespace DPAT_Sudoku.Business.Builder
                                 Value = value
                             };
                             cell.Location.X = j * 3 + k;
-                            cell.Location.Y = i * 3 + rasterRows.IndexOf(r);
+                            cell.Location.Y = i * 3 + l;
 
                             raster.AddCell(cell);
                         }
-                    });
+                    }
 
                     _sudoku.AddRaster(raster);
                 }
