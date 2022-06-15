@@ -6,6 +6,6 @@ namespace DPAT_Sudoku.Domain
 {
     public class Cell
     {
-        private Location _location;
+        public Location Location { get; set; }
     }
 }

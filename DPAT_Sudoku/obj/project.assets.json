@@ -1,11 +1,49 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {}
+    ".NETCoreApp,Version=v3.1": {
+      "DPAT_Sudoku.Business/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/DPAT_Sudoku.Business.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DPAT_Sudoku.Business.dll": {}
+        }
+      },
+      "DPAT_Sudoku.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "DPAT_Sudoku.Business": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DPAT_Sudoku.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DPAT_Sudoku.Domain.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "DPAT_Sudoku.Business/1.0.0": {
+      "type": "project",
+      "path": "../DPAT_Sudoku.Business/DPAT_Sudoku.Business.csproj",
+      "msbuildProject": "../DPAT_Sudoku.Business/DPAT_Sudoku.Business.csproj"
+    },
+    "DPAT_Sudoku.Domain/1.0.0": {
+      "type": "project",
+      "path": "../DPAT_Sudoku.Domain/DPAT_Sudoku.Domain.csproj",
+      "msbuildProject": "../DPAT_Sudoku.Domain/DPAT_Sudoku.Domain.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": []
+    ".NETCoreApp,Version=v3.1": [
+      "DPAT_Sudoku.Business >= 1.0.0",
+      "DPAT_Sudoku.Domain >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Ryan\\.nuget\\packages\\": {}
@@ -33,7 +71,14 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Ryan\\source\\repos\\DPAT_Sudoku\\DPAT_Sudoku.Business\\DPAT_Sudoku.Business.csproj": {
+              "projectPath": "C:\\Users\\Ryan\\source\\repos\\DPAT_Sudoku\\DPAT_Sudoku.Business\\DPAT_Sudoku.Business.csproj"
+            },
+            "C:\\Users\\Ryan\\source\\repos\\DPAT_Sudoku\\DPAT_Sudoku.Domain\\DPAT_Sudoku.Domain.csproj": {
+              "projectPath": "C:\\Users\\Ryan\\source\\repos\\DPAT_Sudoku\\DPAT_Sudoku.Domain\\DPAT_Sudoku.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

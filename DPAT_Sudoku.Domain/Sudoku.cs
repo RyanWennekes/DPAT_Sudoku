@@ -7,6 +7,8 @@ namespace DPAT_Sudoku.Domain
 {
     public abstract class Sudoku : Component
     {
+        public List<Component> Children { get; set; }
+
         public bool Solve()
         {
             throw new NotImplementedException();

@@ -5,4 +5,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DPAT_Sudoku.Business\DPAT_Sudoku.Business.csproj" />
+    <ProjectReference Include="..\DPAT_Sudoku.Domain\DPAT_Sudoku.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
