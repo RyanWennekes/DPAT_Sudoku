@@ -35,6 +35,8 @@ namespace DPAT_Sudoku
             while (true)
             {
                 ConsoleKeyInfo key = Console.ReadKey();
+                int x = Console.CursorLeft;
+                int y = Console.CursorTop;
                 int number;
 
                 if (key.Key == ConsoleKey.Spacebar)
@@ -59,6 +61,8 @@ namespace DPAT_Sudoku
                         Console.Write(c.Value);
                         Console.ResetColor();
                     });
+
+                    Console.SetCursorPosition(x, y);
                 }
                 else if (key.Key == ConsoleKey.S)
                 {
@@ -74,6 +78,11 @@ namespace DPAT_Sudoku
                 } else if (key.Key == ConsoleKey.R)
                 {
                     Start(type, data);
+                } else if (key.Key == ConsoleKey.Backspace)
+                {
+                    _sudoku.SetCellValue(x, y, null);
+                    Redraw(visitor);
+                    Console.SetCursorPosition(x, y);
                 }
                 else if (key.Key == ConsoleKey.UpArrow)
                 {

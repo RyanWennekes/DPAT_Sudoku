@@ -109,7 +109,7 @@ namespace DPAT_Sudoku.Domain
             return new List<Component>() { this }; // Each sudoku, by default, returns a list containing only itself.
         }
 
-        public void SetCellValue(int x, int y, int value)
+        public void SetCellValue(int x, int y, int? value)
         {
             List<Raster> rasters = GetRasters();
             rasters.ForEach(r =>
