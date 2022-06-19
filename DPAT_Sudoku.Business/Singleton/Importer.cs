@@ -5,11 +5,11 @@ using System.Text;
 
 namespace DPAT_Sudoku.Business.Singleton
 {
-    public class Importer
+    public class Importer : IImporter
     {
-        private static Importer instance;
+        private static IImporter instance;
 
-        public static Importer GetInstance()
+        public static IImporter GetInstance()
         {
             if (Importer.instance == null)
             {
@@ -20,9 +20,22 @@ namespace DPAT_Sudoku.Business.Singleton
         }
 
         // Returns a tuple in which the first string denotes the data, and the second denotes the type.
-        public (string, string) Import(String path)
+        public (string, string) Import()
         {
-            return (File.ReadAllText(path), Path.GetExtension(path));
+            string path = Console.ReadLine();
+
+            try
+            {
+                string extension = Path.GetExtension(path);
+                string data = File.ReadAllText(path);
+
+                return (data, extension);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("You entered an invalid file path! Please enter a new one:");
+                return Import();
+            }
         }
     }
 }

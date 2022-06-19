@@ -3,31 +3,35 @@ using DPAT_Sudoku.Business.Singleton;
 using DPAT_Sudoku.Domain;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace DPAT_Sudoku
 {
-    public class Client
+    public class Client : IClient
     {
         private Sudoku _sudoku;
-        private bool annotationMode = false;
+        private string data;
+        private string type;
+        private ISudokuFactory _sudokuFactory;
+        private IImporter _importer;
 
-        public Client()
+        public Client(ISudokuFactory sudokuFactory, IImporter importer) // Inject factory into client constructor.
         {
             Console.ResetColor();
             Console.WriteLine("Welcome to the great DPAT1 Sudoku game! Enter the path to the Sudoku file you want to play:");
-            String path = Console.ReadLine();
-
-            Importer importer = Importer.GetInstance();
-            (string, string) import = importer.Import(path);
-
-            Start(import.Item2, import.Item1);
+            _sudokuFactory = sudokuFactory;
+            _importer = importer;
         }
 
-        private void Start(string type, string data)
+        public void Start()
         {
-            SudokuFactory factory = new SudokuFactory();
-            _sudoku = factory.Create(type, data);
+            (string, string) import = _importer.Import();
+
+            this.type = import.Item2;
+            this.data = import.Item1;
+
+            _sudoku = _sudokuFactory.Create(type, data);
 
             ConsoleViewVisitor visitor = new ConsoleViewVisitor();
             Redraw(visitor);
@@ -41,11 +45,12 @@ namespace DPAT_Sudoku
 
                 if (key.Key == ConsoleKey.Spacebar)
                 {
-                    annotationMode = !annotationMode;
+                    _sudoku.ToggleAnnotationMode();
                     int line = _sudoku.GetHeight() + 1;
                     ClearLine(line);
                     Console.SetCursorPosition(0, line);
-                    Console.WriteLine($"Annotation mode enabled: {annotationMode} (Press Space to toggle)");
+                    Console.WriteLine($"Annotation mode enabled: {_sudoku.IsAnnotationMode()} (Press Space to toggle)");
+                    Redraw(visitor);
                     Console.SetCursorPosition(0, 0);
                 }
                 else if (key.Key == ConsoleKey.C)
@@ -53,16 +58,23 @@ namespace DPAT_Sudoku
                     Redraw(visitor);
                     List<Cell> invalidCells = _sudoku.Validate();
 
-                    invalidCells.ForEach(c =>
+                    if (_sudoku.GetCells().FirstOrDefault(c => c.Value == null) == null && invalidCells.Count == 0)
                     {
-                        Console.SetCursorPosition(c.Location.X, c.Location.Y);
-                        Console.BackgroundColor = ConsoleColor.Red;
-                        Console.ForegroundColor = ConsoleColor.White;
-                        Console.Write(c.Value);
-                        Console.ResetColor();
-                    });
+                        Redraw(visitor);
+                        Console.WriteLine("WOOHOO SOLVED IT");
+                    } else
+                    {
+                        invalidCells.ForEach(c =>
+                        {
+                            Console.SetCursorPosition(c.Location.X, c.Location.Y);
+                            Console.BackgroundColor = ConsoleColor.Red;
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.Write(c.Value);
+                            Console.ResetColor();
+                        });
 
-                    Console.SetCursorPosition(x, y);
+                        Console.SetCursorPosition(x - 1, y);
+                    }
                 }
                 else if (key.Key == ConsoleKey.S)
                 {
@@ -73,16 +85,16 @@ namespace DPAT_Sudoku
                     } else
                     {
                         Redraw(visitor);
-                        Console.WriteLine("Oh oh, an error occured");
+                        Console.WriteLine("Oh oh, this sudoku is unsolvable!");
                     }
                 } else if (key.Key == ConsoleKey.R)
                 {
-                    Start(type, data);
+                    Reset();
                 } else if (key.Key == ConsoleKey.Backspace)
                 {
-                    _sudoku.SetCellValue(x, y, null);
+                    _sudoku.SetCellValue(x + 1, y, null);
                     Redraw(visitor);
-                    Console.SetCursorPosition(x, y);
+                    Console.SetCursorPosition(x + 1, y);
                 }
                 else if (key.Key == ConsoleKey.UpArrow)
                 {
@@ -111,6 +123,8 @@ namespace DPAT_Sudoku
                     int cursorLocationY = Console.CursorTop;
 
                     _sudoku.SetCellValue(cursorLocationX, cursorLocationY, number);
+                    Redraw(visitor);
+                    Console.SetCursorPosition(cursorLocationX, cursorLocationY);
                 }
                 else
                 {
@@ -118,10 +132,9 @@ namespace DPAT_Sudoku
                 }
             }
 
-        exit_loop:;
+            exit_loop:;
 
-            Console.Clear();
-            Console.WriteLine("Thanks for playing!");
+            Stop();    
         }
 
         private void Redraw(ConsoleViewVisitor visitor)
@@ -129,7 +142,7 @@ namespace DPAT_Sudoku
             Console.Clear();
             _sudoku.Accept(visitor);
 
-            Console.WriteLine($"Annotation mode enabled: {annotationMode} (Press Space to toggle)");
+            Console.WriteLine($"Annotation mode enabled: {_sudoku.IsAnnotationMode()} (Press Space to toggle)");
             Console.WriteLine("Press S to let the computer solve the sudoku.");
             Console.WriteLine("Press C to let the computer validate the sudoku.");
             Console.WriteLine("Press R to restart.");
@@ -141,6 +154,17 @@ namespace DPAT_Sudoku
         {
             Console.SetCursorPosition(0, lineNumber);
             Console.Write(new string(' ', Console.WindowWidth));
+        }
+
+        public void Reset()
+        {
+            Start();
+        }
+
+        public void Stop()
+        {
+            Console.Clear();
+            Console.WriteLine("Thanks for playing!");
         }
     }
 }

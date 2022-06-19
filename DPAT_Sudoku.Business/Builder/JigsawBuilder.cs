@@ -9,10 +9,6 @@ namespace DPAT_Sudoku.Business.Builder
     public class JigsawBuilder : SudokuBuilder
     {
         private Jigsaw _sudoku;
-        public JigsawBuilder()
-        {
-            _sudoku = new Jigsaw();
-        }
         public Sudoku GetResult()
         {
             return _sudoku;
@@ -20,6 +16,7 @@ namespace DPAT_Sudoku.Business.Builder
 
         public void Make(string input)
         {
+            _sudoku = new Jigsaw();
             List<String> cells = input.Split("=").ToList();
             cells.RemoveAt(0);
 

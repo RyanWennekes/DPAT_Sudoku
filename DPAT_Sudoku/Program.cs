@@ -1,4 +1,6 @@
 ﻿using System;
+using DPAT_Sudoku.Business.Factory;
+using DPAT_Sudoku.Business.Singleton;
 
 namespace DPAT_Sudoku
 {
@@ -6,7 +8,10 @@ namespace DPAT_Sudoku
     {
         static void Main(string[] args)
         {
-            Client client = new Client();
+            ISudokuFactory factory = new SudokuFactory();
+            IImporter importer = Importer.GetInstance();
+            IClient client = new Client(factory, importer);
+            client.Start();
         }
     }
 }

@@ -10,10 +10,6 @@ namespace DPAT_Sudoku.Business.Builder
     public class SamuraiBuilder : SudokuBuilder
     {
         private Samurai _sudoku;
-        public SamuraiBuilder()
-        {
-            _sudoku = new Samurai();
-        }
         public Sudoku GetResult()
         {
             return _sudoku;
@@ -21,6 +17,7 @@ namespace DPAT_Sudoku.Business.Builder
 
         public void Make(string input)
         {
+            _sudoku = new Samurai();
             AddSubSudokus(input);
             ApplyLocationOffset();
         }

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace DPAT_Sudoku.Business.Factory
 {
-    public class SudokuFactory
+    public class SudokuFactory : ISudokuFactory
     {
         public Dictionary<string, SudokuBuilder> FactoryTypes { get; set; }
 

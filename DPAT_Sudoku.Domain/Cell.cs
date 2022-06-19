@@ -9,6 +9,8 @@ namespace DPAT_Sudoku.Domain
         public Location Location { get; set; }
         public int? Value { get; set; }
 
+        public bool IsAnnotation { get; set; } = false;
+
         public Cell()
         {
             Location = new Location();

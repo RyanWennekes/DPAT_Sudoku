@@ -9,10 +9,6 @@ namespace DPAT_Sudoku.Business.Builder
     public class Sudoku_4x4_Builder : SudokuBuilder
     {
         private Sudoku_4x4 _sudoku;
-        public Sudoku_4x4_Builder()
-        {
-            _sudoku = new Sudoku_4x4();
-        }
         public Sudoku GetResult()
         {
             return _sudoku;
@@ -20,6 +16,7 @@ namespace DPAT_Sudoku.Business.Builder
 
         public void Make(string input)
         {
+            _sudoku = new Sudoku_4x4();
             List<String> sudokuRows = new List<string>();
 
             // Split input into rows.

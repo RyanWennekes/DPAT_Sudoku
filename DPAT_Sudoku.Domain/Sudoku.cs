@@ -9,6 +9,7 @@ namespace DPAT_Sudoku.Domain
 {
     public abstract class Sudoku : Component, Element
     {
+        private bool _annotationMode = false;
         public List<Component> Children { get; set; }
 
         public Sudoku()
@@ -59,16 +60,16 @@ namespace DPAT_Sudoku.Domain
                 invalidCells.AddRange(c.Validate());
             });
 
-            List<Cell> cells = GetCells();
+            List<Cell> cells = GetCells().Where(c => c.IsAnnotation != false).ToList();
             cells.ForEach(c =>
             {
-                List<Cell> comparativeCells = GetCells();
+                List<Cell> comparativeCells = GetCells().Where(c => c.IsAnnotation != false).ToList();
                 comparativeCells.ForEach(cc =>
                 {
                     if (c.Value == cc.Value
                     && c.Value != null
                     && c.Location != cc.Location
-                    && (c.Location.X == cc.Location.X || c.Location.Y == cc.Location.Y)) // Exclusive or: we don't want to invalidate the same cell.
+                    && (c.Location.X == cc.Location.X || c.Location.Y == cc.Location.Y))
                     {
                         invalidCells.Add(c);
                     }
@@ -111,6 +112,12 @@ namespace DPAT_Sudoku.Domain
 
         public void SetCellValue(int x, int y, int? value)
         {
+            Cell cell = GetCell(x, y);
+            if (cell.Value != null && cell.IsAnnotation == false && _annotationMode == true)
+            {
+                return;
+            }
+
             List<Raster> rasters = GetRasters();
             rasters.ForEach(r =>
             {
@@ -118,8 +125,14 @@ namespace DPAT_Sudoku.Domain
                 if (cell != null)
                 {
                     cell.Value = value;
+                    cell.IsAnnotation = _annotationMode;
                 }
             });
+        }
+
+        public Cell GetCell(int x, int y)
+        {
+            return GetCells().FirstOrDefault(c => c.Location.X == x && c.Location.Y == y);
         }
 
         public abstract int GetHeight();
@@ -127,6 +140,16 @@ namespace DPAT_Sudoku.Domain
         private Cell FirstEmptyCell()
         {
             return GetCells().FirstOrDefault(c => c.Value == null);
+        }
+
+        public bool IsAnnotationMode()
+        {
+            return _annotationMode;
+        }
+
+        public void ToggleAnnotationMode()
+        {
+            _annotationMode = !_annotationMode;
         }
     }
 }
