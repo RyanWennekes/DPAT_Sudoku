@@ -60,10 +60,10 @@ namespace DPAT_Sudoku.Domain
                 invalidCells.AddRange(c.Validate());
             });
 
-            List<Cell> cells = GetCells().Where(c => c.IsAnnotation != false).ToList();
+            List<Cell> cells = GetCells().Where(c => c.IsAnnotation == false).ToList();
             cells.ForEach(c =>
             {
-                List<Cell> comparativeCells = GetCells().Where(c => c.IsAnnotation != false).ToList();
+                List<Cell> comparativeCells = GetCells().Where(c => c.IsAnnotation == false).ToList();
                 comparativeCells.ForEach(cc =>
                 {
                     if (c.Value == cc.Value

@@ -90,11 +90,11 @@ namespace DPAT_Sudoku
                 } else if (key.Key == ConsoleKey.R)
                 {
                     Reset();
-                } else if (key.Key == ConsoleKey.Backspace)
+                } else if (key.Key == ConsoleKey.Delete)
                 {
-                    _sudoku.SetCellValue(x + 1, y, null);
+                    _sudoku.SetCellValue(x, y, null);
                     Redraw(visitor);
-                    Console.SetCursorPosition(x + 1, y);
+                    Console.SetCursorPosition(x, y);
                 }
                 else if (key.Key == ConsoleKey.UpArrow)
                 {

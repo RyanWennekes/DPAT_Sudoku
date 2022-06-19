@@ -39,7 +39,7 @@ namespace DPAT_Sudoku.Domain
         {
             List<Cell> duplicates = new List<Cell>();
 
-            var groups = _cells.GroupBy(c => c.Value).ToList();
+            var groups = _cells.Where(c => c.IsAnnotation == false).GroupBy(c => c.Value).ToList();
             groups.ForEach(group =>
             {
                 if (group.Count() > 1 && group.Key != null)
